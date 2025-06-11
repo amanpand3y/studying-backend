@@ -34,7 +34,7 @@ const userSchema = new mongoose.Schema(
         },
         watchHistory: [
             {
-                type: Schema.Types.ObjectId,
+                type: mongoose.Schema.Types.ObjectId,
                 ref: "Video"
             }
         ],
@@ -76,7 +76,7 @@ userSchema.methods.generateAccessToken = function(){
     )
 }
 
-userSchema.methods.generateAccessToken = function(){
+userSchema.methods.generateRefreshToken = function(){
     jwt.sign(
         {
             _id: this._id
